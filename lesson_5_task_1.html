@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lesson5_task_1</title>
+    <style>
+        #chess-board {
+            width: 320px;
+            height: 320px;
+            border: 1px solid black;
+        }
+
+        .board {
+            width: 390px;
+            height: 390px;
+            border: 1px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .numbers {
+            line-height: 2.3;
+        }
+
+        div {
+            width: 40px;
+            height: 40px;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>1. Создать функцию, генерирующую шахматную доску. При этом можно использовать
+        любые html-теги по своему желанию. Доска должна быть разлинована соответствующим
+        образом, т.е. чередовать черные и белые ячейки. Строки должны нумероваться числами
+        от 1 до 8, столбцы – латинскими буквами A, B, C, D, E, F, G, H.</h3>
+        
+    <div class="board">         
+        <table class="numbers">
+            
+            <tr>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>8</td>
+            </tr>
+        </table>
+        <div id="chess-board">
+        </div>
+    </div>
+    <script src="lesson_5_task_1.js"></script>
+</body>
+
+</html>
