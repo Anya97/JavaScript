@@ -7,70 +7,43 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Lesson5_task_1</title>
     <style>
-        #chess-board {
-            width: 320px;
-            height: 320px;
+        .chess-board {
+            width: 495px;
+            height: 495px;
+            margin: 30px auto;
             border: 1px solid black;
         }
 
-        .board {
-            width: 390px;
-            height: 390px;
-            border: 1px solid black;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .numbers {
-            line-height: 2.3;
-        }
-
-        div {
-            width: 40px;
-            height: 40px;
+        .cell {
+            width: 60px;
+            height: 60px;
             float: left;
+        }
+
+        .rows {
+            width: 15px;
+            height: 60px;
+            float: left;
+        }
+
+        .letters {
+            width: 60px;
+            height: 15px;
+            float: right;
+        }
+
+        .black {
+            background: #444;
+        }
+
+        .white {
+            background: #fff;
         }
     </style>
 </head>
 
 <body>
-    <h3>1. Создать функцию, генерирующую шахматную доску. При этом можно использовать
-        любые html-теги по своему желанию. Доска должна быть разлинована соответствующим
-        образом, т.е. чередовать черные и белые ячейки. Строки должны нумероваться числами
-        от 1 до 8, столбцы – латинскими буквами A, B, C, D, E, F, G, H.</h3>
-        
-    <div class="board">         
-        <table class="numbers">
-            
-            <tr>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td>2</td>
-            </tr>
-            <tr>
-                <td>3</td>
-            </tr>
-            <tr>
-                <td>4</td>
-            </tr>
-            <tr>
-                <td>5</td>
-            </tr>
-            <tr>
-                <td>6</td>
-            </tr>
-            <tr>
-                <td>7</td>
-            </tr>
-            <tr>
-                <td>8</td>
-            </tr>
-        </table>
-        <div id="chess-board">
-        </div>
-    </div>
+    <div class="chess-board"></div>
     <script src="lesson_5_task_1.js"></script>
 </body>
 
