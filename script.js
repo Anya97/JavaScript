@@ -36,20 +36,31 @@ const game = {
      * Функция выполняет старт игры.
      */
     start() {
-        this.setGameStatus(GAME_STATUS_STARTED);
+        if (this.getGameStatus() == GAME_STATUS_PAUSED) { 
+            this.setGameStatus(GAME_STATUS_STARTED);
+            game.interval = setInterval(game.moveSnake, 500);
+        } else if (this.getGameStatus() != GAME_STATUS_STARTED) {
+            this.setGameStatus(GAME_STATUS_STARTED);
 
-        board.render();
-        snake.render();
-        food.render();
+            snake.parts = [
+                { top: 0, left: 0 },
+                { top: 0, left: 1 },
+                { top: 0, left: 2 },
+            ]
+            board.render();
+            snake.render();
+            food.render();
+        }
     },
 
     /**
      * Функция выполняет паузу игры.
      */
     pause() {
-        this.setGameStatus(GAME_STATUS_PAUSED);
-
-        /* добавить сюда код */
+        if (this.getGameStatus() == GAME_STATUS_STARTED) {
+            this.setGameStatus(GAME_STATUS_PAUSED);
+            clearInterval(game.interval);
+        }
     },
 
     /**
@@ -57,9 +68,12 @@ const game = {
      */
     stop() {
         this.setGameStatus(GAME_STATUS_STOPPED);
-
+        snake.parts = [];
         board.getElement().innerHTML = "";
-        alert("Игра окончена")
+        alert("Игра окончена. Ваши очки " + game.counter);
+        game.counter = 0;
+        let scoreValue = document.getElementById("score-value");
+        scoreValue.innerHTML = game.counter;
         /* добавить сюда код */
     },
 
@@ -148,6 +162,10 @@ const game = {
         // обратить внимание, как сделать красивее
         element.classList.remove(GAME_STATUS_STARTED, GAME_STATUS_PAUSED, GAME_STATUS_STOPPED);
         element.classList.add(status);
+    },
+    getGameStatus() {
+        const element = game.getElement();
+        return element.classList[1]
     }
 };
 
@@ -240,11 +258,7 @@ const snake = {
      * NOTE: обратить внимание, как сделать красивее.
      * Поменять порядок координат, сейчас первый элемент массива означает хвост.
      */
-    parts: [
-        { top: 0, left: 0 },
-        { top: 0, left: 1 },
-        { top: 0, left: 2 },
-    ],
+     parts: [],
 
     /**
      * Функция устанавливает направление движения.
